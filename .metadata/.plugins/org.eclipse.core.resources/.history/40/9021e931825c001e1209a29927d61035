@@ -1,0 +1,95 @@
+package boton;
+
+import java.awt.EventQueue;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
+import javax.swing.JRadioButton;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class radio {
+
+	private JFrame frmBotonRadio;
+	private JLabel lblcolor;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					radio window = new radio();
+					window.frmBotonRadio.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public radio() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frmBotonRadio = new JFrame();
+		frmBotonRadio.setTitle("BOTON RADIO");
+		frmBotonRadio.setBounds(100, 100, 632, 348);
+		frmBotonRadio.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmBotonRadio.setLocationRelativeTo(null);
+		frmBotonRadio.getContentPane().setLayout(null);
+		
+		lblcolor = new JLabel("");
+		lblcolor.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));
+		lblcolor.setBounds(330, 31, 252, 218);
+		frmBotonRadio.getContentPane().add(lblcolor);
+		
+		JRadioButton radrojo = new JRadioButton("ROJO");
+		radrojo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lblcolor.setBackground(Color.RED);
+			}
+		});
+		radrojo.setFont(new Font("Tahoma", Font.BOLD, 14));
+		radrojo.setBounds(36, 31, 109, 23);
+		frmBotonRadio.getContentPane().add(radrojo);
+		
+		JRadioButton radverde = new JRadioButton("VERDE");
+		radverde.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lblcolor.setBackground(Color.BLUE);
+			}
+		});
+		radverde.setFont(new Font("Tahoma", Font.BOLD, 14));
+		radverde.setBounds(36, 74, 109, 23);
+		frmBotonRadio.getContentPane().add(radverde);
+		
+		JRadioButton radazul = new JRadioButton("AZUL");
+		radazul.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lblcolor.setBackground(Color.GREEN);
+			}
+		});
+		radazul.setFont(new Font("Tahoma", Font.BOLD, 14));
+		radazul.setBounds(36, 118, 109, 23);
+		frmBotonRadio.getContentPane().add(radazul);
+		
+		ButtonGroup grupo=new ButtonGroup();
+		grupo.add(radazul);
+		grupo.add(radrojo);
+		grupo.add(radverde);
+	};
+	
+}
